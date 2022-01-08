@@ -30,6 +30,17 @@ namespace ImagesLamda.BE
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSingleton<ImageService>();
+            services.AddCors(c =>
+            {
+                //Generally adopted this method
+                c.AddPolicy("LimitRequests", policy =>
+                {
+                    policy
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -39,6 +50,8 @@ namespace ImagesLamda.BE
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("LimitRequests");
 
             app.UseHttpsRedirection();
 
