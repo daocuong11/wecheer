@@ -1,0 +1,14 @@
+<mat-card>
+  <div *ngIf="image">
+    <div class="header-card">
+      <img [src]="image.imageUrl" />
+    </div>
+    <div class="content-card">
+      <p>{{ image.description }}</p>
+      <p>Total {{ imageCount }} images added in hour</p>
+    </div>
+  </div>
+  <div *ngIf="!image">
+    There is no image
+  </div>
+</mat-card>

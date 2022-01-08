@@ -1,0 +1,11 @@
+<form [formGroup]="imageForm" class="example-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Image Url</mat-label>
+    <input matInput formControlName="imageUrl">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description:</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit">Submit</button>
+</form>
